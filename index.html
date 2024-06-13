@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Ensure you are linking the stylesheets correctly -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-base: "Bai Jamjuree";
+      --color-brand: hsl(199, 48%, 73%);
+      --color-brand2: hsla(182, 70%, 58%, 0.418);
+      --color-bg: hsl(187, 50%, 20%);
+      --color-bg2: hsl(177, 44%, 32%);
+      --sidebar-width: 240px;
+      --color-body: rgb(169, 207, 214);
+      --color-heading: hsl(252, 78%, 95%);
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-body);
+      font-family: var(--font-base), sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--color-heading);
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--color-body);
+      transition: all 0.4s ease;
+    }
+
+    a:hover {
+      color: var(--color-brand);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .text-brand {
+      color: var(--color-brand2);
+    }
+
+    .full-height {
+      min-height: 100vh;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      border-bottom: 2px solid;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--color-bg);
+    }
+
+    .navbar .nav-link {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .navbar .nav-link:hover {
+      color: var(--color-brand);
+    }
+
+    @media(min-width:992px) {
+      .navbar {
+        min-height: 100vh;
+        width: var(--sidebar-width);
+        background: linear-gradient(hsl(177, 44%, 32%), hsl(177, 44%, 32%));
+        background-size: cover;
+        background-position: center;
+      }
+
+      .navbar-brand img {
+        border: 8px solid var(--color-brand2);
+      }
+    }
+
+    #Main-wrapper {
+      padding-left: var(--sidebar-width);
+    }
+
+    @media(max-width: 992px) {
+      #Main-wrapper {
+        padding-left: 0;
+      }
+
+      .navbar {
+        width: 100%;
+      }
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .btn-brand {
+      background-color: var(--color-brand2);
+    }
+
+    .btn-brand:hover,
+    .btn-brand:focus {
+      background-color: var(--color-brand2);
+      color: white;
+      border-color: var(--color-brand2);
+    }
+
+    .custom-link {
+      font-family: 600;
+      position: relative;
+    }
+
+    .custom-link::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background-color: var(--color-brand2);
+      position: absolute;
+      top: 110%;
+      left: 0;
+      transition: all 0.4s;
+    }
+
+    .custom-link:hover::after {
+      width: 100%;
+    }
+
+    #about {
+      padding: 80px 0;
+      color: var(--color-body)
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+
+    .about-col-1 img {
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .about-col-2 {
+      flex-basis: 60%;
+    }
+
+    @media only screen and (max-width:1100px) {
+
+      .about-col-1,
+      .about-col-2 {
+        flex-basis: 100%;
+      }
+
+      .about-col-1 img {
+        height: 100%;
+      }
+
+      .about-col-1 {
+        margin-bottom: 30px;
+      }
+
+      .about-col-2 {
+        font-size: 14px;
+      }
+
+    }
+
+    .project-card img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .project {
+      color: var(--color-heading);
+      font-weight: 600;
+    }
+
+    #contact .form-control {
+      background-color: var(--color-base);
+      border-color: var(--color-base);
+      color: var(--color-brand2);
+    }
+
+    #contact .form-control:focus {
+      border-color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    #contact input.form-control {
+      height: 44px;
+    }
+
+    .hom {
+      color: var(--color-body);
+      font-weight: 600;
+    }
+    .skill,.contact,.label,.send{
+      color: var(--color-bg2);
+    }
+  </style>
+  <script src="./assets/js/main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+
+      emailjs.init({
+        publicKey: "NobAtkHCjtEyqmtd4",
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container flex-lg-column">
+      <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+        <span class="h3 fw-fold d-block  text-lg-center">Frinsila sherin</span>
+        <img src="preson.png" class="d-none d-lg-block rounded-circle" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project">Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Main wrapper -->
+  <div id="Main-wrapper">
+    <!-- Home -->
+    <section id="home" class="full-height px-lg-5 ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h1 class="display-4 fw-bold">
+              Hi, I'm <span class="text-brand">Frinsila Sherin</span>FROM KERALA,INDIA
+            </h1>
+            <p class="lead">
+              As a self-taught full stack developer, I have extensive hands-on experience in
+            developing and implementing functional solutions to various problems
+            </p>
+            <p class="lead">
+              <a class="btn btn-brand me-3" href="#contact">Explore My Work</a>
+              <a class="custom-link" href="#">Call:7306530684</a>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.151761418307_crid.657403558715_kw.linkedin%20sign%20up_d.c_tid.kwd-331338449004_n.g_mt.e_geo.9075362"
+                  target="_blank" width><i class="lab la-linkedin-in" style="font-size:40px"></i></a>
+                <a href="https://www.instagram.com/frinsilamtf?igsh=Z2Y4anB4N3owYzZ6&utm_source=qr" target="_blank"><i
+                    class="lab la-instagram" style="font-size:40px"></i></a>
+                <a href="https://github.com/frinsila" target="_blank"><i class="lab la-github"
+                    style="font-size:40px"></i></a>
+                <a href="" target="_blank"><i class="lab la-twitter" style="font-size:40px"></i></i></a>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2 class="fw-bold text-center mb-5">About Me</h2>
+        <div class="row">
+          <div class="about-col-1">
+            <img src="preson.png" alt="About Me">
+          </div>
+          <div class="about-col-2">
+            <p>As a self-taught full stack developer, I have extensive hands-on experience in developing and implementing
+              functional solutions to various problems. I have been passionate about coding and consistently delivering
+              high-quality results within deadlines.In addition,<span class="imp-txt"> I completed diploma in computer
+                engineering in 2023 </span>, further enhancing my technical knowledge and skills.</p>
+                <div class="tab-titles">
+                  <p class="tab-links active-link" onclick="opentab('education')">
+                    Education
+                  </p>
+    
+                </div>
+                <div class="tab-contents active-tab" id="education">
+                  <ul>
+                    <li><span>2024</span><br>Bridgeon Solution LLP Kakkanchery</li>
+                    <li><span>2021 - 2024</span><br>BSC computer Science in KMCT college Kuttipuram</li>
+                    <li><span>2019 - 2021</span><br>GVHS BPAngadi</li>
+                  </ul>
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills -->
+    <section id="skills" class="bg-light py-5">
+      <div class="container">
+        <h2 class="fw-bold text-center mb-5 skill">Skills</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">HTML</h5>
+                <p class="card-text">Expertise in creating semantic and accessible HTML markup.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">CSS</h5>
+                <p class="card-text">Proficient in modern CSS techniques including Flexbox, Grid, and animations.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">JavaScript</h5>
+                <p class="card-text">Strong knowledge of vanilla JavaScript and modern frameworks like React.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects -->
+    <section id="project" class="py-5">
+      <div class="container">
+        <h2 class="fw-bold text-center mb-5">Projects</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card project-card">
+              <img src="./assets/images/W3school.png" class="card-img-top" alt="Project 1">
+              <div class="card-body">
+                <h5 class="card-title">W3schools</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card project-card">
+              <img src="./assets/images/linked in.png" class="card-img-top" alt="Project 2">
+              <div class="card-body">
+                <h5 class="card-title">LinkedIn</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card project-card">
+              <img src="./assets/images/portfolio.png" class="card-img-top" alt="Project 3">
+              <div class="card-body">
+                <h5 class="card-title">Portfolio</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="fw-bold text-center mb-5 contact">Contact</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-brand send" onclick="sendMail()">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
